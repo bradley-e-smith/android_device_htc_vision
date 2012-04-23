@@ -110,6 +110,9 @@ PRODUCT_COPY_FILES += \
 # Alternate NAM gps.conf to NAM package
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_US:system/etc/nam/gps.conf
 
+# Copy bcm4329 firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
+
 PRODUCT_COPY_FILES += \
     device/htc/vision/vold.fstab:system/etc/vold.fstab
 
@@ -133,7 +136,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    device/htc/msm7x30-common/msm7230/bcm4329.ko:system/lib/modules/bcm4329.ko
+    device/htc/msm7x30-common/msm7230/bcmdhd.ko:system/lib/modules/bcmdhd.ko
 
 # stuff common to all HTC phones
 $(call inherit-product, device/htc/common/common.mk)

@@ -206,8 +206,8 @@ key 180   NUMPAD_RIGHT_PAREN
 # key 184   F14
 # key 185   F15
 key 186   SCROLL_LOCK
-# key 187   F17
-# key 188   F18
+key 187   SHIFT_RIGHT
+key 188   EQUALS
 # key 189   F19
 # key 190   F20
 # key 191   F21

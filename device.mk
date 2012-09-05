@@ -18,13 +18,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += \
-    device/htc/vision/gps.conf:system/etc/gps.conf
+    device/htc/vision/configs/gps.conf:system/etc/gps.conf
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 PRODUCT_COPY_FILES += \
-    device/htc/vision/init.vision.rc:root/init.vision.rc \
-    device/htc/vision/ueventd.vision.rc:root/ueventd.vision.rc
+    device/htc/vision/ramdisk/init.vision.rc:root/init.vision.rc \
+    device/htc/vision/ramdisk/ueventd.vision.rc:root/ueventd.vision.rc 
 
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/vision/device-vendor.mk)
@@ -50,7 +50,7 @@ PRODUCT_COPY_FILES += \
 
 # gsm config xml file
 PRODUCT_COPY_FILES += \
-    device/htc/vision/voicemail-conf.xml:system/etc/voicemail-conf.xml
+    device/htc/vision/configs/voicemail-conf.xml:system/etc/voicemail-conf.xml
 
 # Sensors, GPS, Lights
 PRODUCT_PACKAGES += \
@@ -114,7 +114,7 @@ PRODUCT_COPY_FILES += device/common/gps/gps.conf_US:system/etc/nam/gps.conf
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
 PRODUCT_COPY_FILES += \
-    device/htc/vision/vold.fstab:system/etc/vold.fstab
+    device/htc/vision/configs/vold.fstab:system/etc/vold.fstab
 
 PRODUCT_COPY_FILES += \
     vendor/htc/vision/proprietary/libcamera.so:obj/lib/libcamera.so
